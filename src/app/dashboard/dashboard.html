@@ -1,6 +1,14 @@
+<!-- dashboard.html -->
 <div class="page">
   <h1>Dashboard (Protected)</h1>
   <p>You can only see this if you are logged in.</p>
 
+  <!-- simple binding: child updates when parentMessage changes -->
+  <app-child [inputProp]="parentMessage" (sendToParent)="handleChildMessage($event)"> </app-child>
+
+  <button (click)="changeMessage()">Send new message to child</button>
+
   <button (click)="logout()">Logout</button>
+  <p appHoverColor="blue">Abc</p>
+  <div appChangeText (changeText)="changeMe($event)">Click me</div>
 </div>
