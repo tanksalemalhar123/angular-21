@@ -22,7 +22,12 @@ constructor(private notif: Notification) {
   this.notif.myBSObservable$.pipe(
     takeUntil(this.destroy$)
   ).subscribe((message) => {
-    alert('Received in ReceiverComponent from BS: ' + message);
+    console.log('Received in ReceiverComponent from BS: ' + message);
+  });
+
+  //Replay Subject Subscribing to the observable
+  this.notif.myReplayObservable$.subscribe(msg => {
+    console.log("Received:", msg);
   });
 
   }

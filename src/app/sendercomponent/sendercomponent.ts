@@ -14,6 +14,12 @@ export class Sendercomponent {
   triggerObservable(){
     this.notification.notify('Hello from Sendercomponent');
     this.notification.notifyBS('Hello BS');
+    this.notification.notifyBS('Hello BS New');
   }
+
+  constructor() {
+    this.notification.sendReplayMessage("Hello!");
+    this.notification.sendReplayMessage("Welcome!");
+   }
 
 }
