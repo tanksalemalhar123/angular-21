@@ -6,16 +6,20 @@ import { AuthService } from '../auth/auth.servivce';
 import { Child } from '../child/child';
 import { AutoColorDirective } from '../directives/app-hover-color.directive';
 import { ChangeTextDirective } from '../directives/change-text.directive';
+import { App } from '../app';
+import { Sendercomponent } from '../sendercomponent/sendercomponent';
+import { ReceiverComponent } from '../receiver-component/receiver-component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, Child, AutoColorDirective,ChangeTextDirective],
+  imports: [CommonModule, Child, AutoColorDirective,ChangeTextDirective,Sendercomponent,ReceiverComponent],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss'],
 })
 export class Dashboard {
   private auth = inject(AuthService);
   private router = inject(Router);
+  private app = inject(App);
   myText = 'Original';
 
   parentMessage = 'Message from Dashboard Component';
@@ -37,5 +41,6 @@ export class Dashboard {
   changeMe(event: any) {
     this.myText = 'To this';
     alert(event);
+    console.log(this.app.mySharedSignal())
   }
 }

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('myapp');
   count = signal(0);
+  mySharedSignal = computed(() => this.count());
   constructor(){
     this.count.set(1);
     this.count.update((num) => {
