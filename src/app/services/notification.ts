@@ -1,10 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Notification {
+  constructor(private http: HttpClient) {}
   //Subject
   private mySubject = new Subject<any>();
   myObservable$ = this.mySubject.asObservable();
@@ -32,5 +34,9 @@ export class Notification {
 
   get replayMessages() {
     return this.messages$.asObservable();
+  }
+
+  getPost(id: string): Observable<any>{
+    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
   }
 }

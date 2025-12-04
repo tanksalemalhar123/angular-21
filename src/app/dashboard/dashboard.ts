@@ -9,10 +9,11 @@ import { ChangeTextDirective } from '../directives/change-text.directive';
 import { App } from '../app';
 import { Sendercomponent } from '../sendercomponent/sendercomponent';
 import { ReceiverComponent } from '../receiver-component/receiver-component';
+import { Rxjs } from '../rxjs/rxjs';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, Child, AutoColorDirective,ChangeTextDirective,Sendercomponent,ReceiverComponent],
+  imports: [CommonModule, Child, AutoColorDirective,ChangeTextDirective,Sendercomponent,ReceiverComponent,Rxjs],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.scss'],
 })
