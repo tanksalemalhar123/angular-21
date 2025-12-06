@@ -1,7 +1,7 @@
 <!-- dashboard.html -->
 <div class="page">
   <h1>Dashboard (Protected)</h1>
-  <p>You can only see this if you are logged in.</p>
+  <p>{{'You can only see this if you are logged in.' | upperCase}}</p>
 
   <!-- simple binding: child updates when parentMessage changes -->
   <app-child [inputProp]="parentMessage" (sendToParent)="handleChildMessage($event)"> </app-child>
@@ -9,9 +9,24 @@
   <button (click)="changeMessage()">Send new message to child</button>
 
   <button (click)="logout()">Logout</button>
-  <p appHoverColor="blue">Abc</p>
+  <!-- <p appHoverColor="blue">Abc</p>
   <div appChangeText (changeText)="changeMe($event)">Click me</div>
   <app-sendercomponent></app-sendercomponent>
   <app-receiver-component></app-receiver-component>
   <app-rxjs></app-rxjs>
+
+  <div [ngSwitch]="status">
+  <p *ngSwitchCase="'pending'">
+    Your request is pending...
+  </p>
+
+  <p *ngSwitchCase="'approved'">
+    Congratulations! Your request is approved.
+  </p>
+  </div>
+
+  <div [ngClass]="{ 'active-class': isActive }">
+  Hello World
+</div> -->
 </div>
+
